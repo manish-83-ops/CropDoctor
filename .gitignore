@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# ML artifacts (large files — download from Colab)
+backend/models/efficientnet_b0/
+backend/models/*.tflite
+backend/models/calibration.json
+backend/data/
+
+# Uploads
+backend/data/uploads/
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

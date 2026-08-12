@@ -1,0 +1,1 @@
+# CropDoctor AI — Database Layer
