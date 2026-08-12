@@ -231,11 +231,13 @@ export default function CapturePage() {
         JSON.stringify(result)
       );
       router.push("/result");
-    } catch {
+    } catch (err: unknown) {
+      console.error("[CropDoctor] Prediction failed:", err);
+      const msg = err instanceof Error ? err.message : String(err);
       setError(
         lang === "hi"
-          ? "विश्लेषण विफल हुआ। कृपया पुनः प्रयास करें।"
-          : "Analysis failed. Please try again."
+          ? `विश्लेषण विफल हुआ: ${msg}`
+          : `Analysis failed: ${msg}`
       );
       setState("error");
     }

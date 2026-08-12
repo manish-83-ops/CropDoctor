@@ -1,12 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Required for Capacitor APK — generates static HTML in out/
-  output: "export",
   images: {
     unoptimized: true,
   },
-  // Allow local network IP addresses to fetch Next.js JS chunks on mobile devices without port numbers
   allowedDevOrigins: [
     "10.95.107.202",
     "10.91.70.202",
@@ -14,6 +11,18 @@ const nextConfig: NextConfig = {
     "127.0.0.1",
     "0.0.0.0",
   ],
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "http://127.0.0.1:8000/api/:path*",
+      },
+      {
+        source: "/static/:path*",
+        destination: "http://127.0.0.1:8000/static/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
